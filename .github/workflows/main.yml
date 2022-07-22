@@ -16,20 +16,20 @@ jobs:
         with:
           status: ${{ job.status }}
           notify_when: 'success'
-          channel : '#test-status'
+          channel : '#random'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           
-          - name: Upload screenshots
-              uses: actions/upload-artifact@latest
-              if: failure()
-              with:
+      - name: Upload screenshots
+        uses: actions/upload-artifact@latest
+        if: failure()
+        with:
                 name: cypress-snapshots
                 path: cypress/snapshots
-        - name: "Upload screenshots to Slack"
-    uses: trymbill/cypress-slack-video-upload-action@v1.3.0
-    if: failure()
-    with:
-      token: ${{ secrets.SLACK_TOKEN }}
-      channels: "_tolk"
-      message-text: "Cypress tests failed! They have been placed in this thread, good luck."
+      - name: "Upload screenshots to Slack"
+        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+        if: failure()
+        with:
+         token: ${{ secrets.SLACK_TOKEN }}
+         channels: "#random"
+         message-text: "Cypress tests failed! They have been placed in this thread, good luck."
