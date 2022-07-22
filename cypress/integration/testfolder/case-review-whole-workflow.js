@@ -73,146 +73,146 @@ Cypress._.times(1, () => {
 
 
 
-        it("medplace admin assign medical expert",()=>{
+//         it("medplace admin assign medical expert",()=>{
           
-            cy.visit("https://hoot-backend-staging.herokuapp.com/"); 
-            cy.wait(5000);
-            cy.get('#user_email').type("sysfort05@gmail.com");
-            cy.wait(2000);
-            cy.get('#user_password').type("Sysfort@2021");
-            cy.wait(2000);
-            cy.get('.btn').click();
-            cy.wait(10000);
-            cy.get('.dropdown-header').click();
-            cy.wait(2000);
-            cy.get('[data-model="admin_match"] > .pjax').click();
-            cy.wait(2000);
-            cy.get(':nth-child(1) > .last > .inline > .edit_member_link > .pjax')
-            .should('have.attr', 'href')
-            .then((href) => {
-              cy.visit(href)
-            })
-            cy.wait(2000);
-            cy.get('.ra-multiselect-left > .wrapper > .form-control').select("113"); //select medical expert
-            cy.get('.ra-multiselect-center > .ui-icon-circle-triangle-e').click(); //push it tonext column
-            cy.wait(1000);
-            cy.get('#admin_match_organization_complete').click(); //org complete checkbox
-            cy.wait(1000);
-            cy.get('#admin_match_match_ready').click();  //mtches ready checkbox
-            cy.wait(1000);
-            cy.get('.btn-primary').click(); //save
-            cy.wait(5000);
-            cy.get('a > .label').click(); // logout
-            cy.wait(5000);
+//             cy.visit("https://hoot-backend-staging.herokuapp.com/"); 
+//             cy.wait(5000);
+//             cy.get('#user_email').type("sysfort05@gmail.com");
+//             cy.wait(2000);
+//             cy.get('#user_password').type("Sysfort@2021");
+//             cy.wait(2000);
+//             cy.get('.btn').click();
+//             cy.wait(10000);
+//             cy.get('.dropdown-header').click();
+//             cy.wait(2000);
+//             cy.get('[data-model="admin_match"] > .pjax').click();
+//             cy.wait(2000);
+//             cy.get(':nth-child(1) > .last > .inline > .edit_member_link > .pjax')
+//             .should('have.attr', 'href')
+//             .then((href) => {
+//               cy.visit(href)
+//             })
+//             cy.wait(2000);
+//             cy.get('.ra-multiselect-left > .wrapper > .form-control').select("113"); //select medical expert
+//             cy.get('.ra-multiselect-center > .ui-icon-circle-triangle-e').click(); //push it tonext column
+//             cy.wait(1000);
+//             cy.get('#admin_match_organization_complete').click(); //org complete checkbox
+//             cy.wait(1000);
+//             cy.get('#admin_match_match_ready').click();  //mtches ready checkbox
+//             cy.wait(1000);
+//             cy.get('.btn-primary').click(); //save
+//             cy.wait(5000);
+//             cy.get('a > .label').click(); // logout
+//             cy.wait(5000);
 
-        })
+//         })
 
 
 
-  //select expert claim consultant side
-       it("select expert claim consultant side",()=>{
+//   //select expert claim consultant side
+//        it("select expert claim consultant side",()=>{
 
-           cy.visit("https://hoot-web-staging.herokuapp.com/"); 
-           cy.wait(5000);
-           cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
-           cy.wait(2000);
-           cy.get("#passwordConfirmation").type("Sysfortcc@2021");
-           cy.wait(2000);
-           cy.get(".btn").click();
-           cy.wait(13000);
-           cy.get('li:nth-child(1) > .block > .flex').click(); //row 1
-           cy.wait(15000);
-           cy.get('.py-10').click(); //select expert button
-           cy.wait(2000);
-           cy.get('.uaTrack-btn-respond-confirm-selection').click(); //confirmation modal
-           cy.wait(10000);
-           cy.get('.hidden > :nth-child(4) > .cursor-pointer').click(); // logout
-           cy.wait(10000);
+//            cy.visit("https://hoot-web-staging.herokuapp.com/"); 
+//            cy.wait(5000);
+//            cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
+//            cy.wait(2000);
+//            cy.get("#passwordConfirmation").type("Sysfortcc@2021");
+//            cy.wait(2000);
+//            cy.get(".btn").click();
+//            cy.wait(13000);
+//            cy.get('li:nth-child(1) > .block > .flex').click(); //row 1
+//            cy.wait(15000);
+//            cy.get('.py-10').click(); //select expert button
+//            cy.wait(2000);
+//            cy.get('.uaTrack-btn-respond-confirm-selection').click(); //confirmation modal
+//            cy.wait(10000);
+//            cy.get('.hidden > :nth-child(4) > .cursor-pointer').click(); // logout
+//            cy.wait(10000);
 
-    //     })
+//     //     })
     
 
 
 
 
-    //   it("medical expert side",()=>{
+//     //   it("medical expert side",()=>{
           
-    //       cy.visit("https://hoot-web-staging.herokuapp.com/"); 
-          cy.get("#emailAddress").type("sysforthoot3@gmail.com");
-          cy.wait(2000);
-          cy.get("#passwordConfirmation").type("Sysforth3@2022");
-          cy.wait(2000);
-          cy.get(".btn").click(); 
-          cy.wait(40000);
-          cy.get(".mt-20").click(); // view case
-          cy.wait(2000);
-          cy.get(":nth-child(5) > .mb-20").click(); // accept case review btn
-          cy.wait(2000);
-          cy.get(":nth-child(7) > .mb-20").click(); // confirmtaion of accept case
-          cy.wait(13000);
-          cy.get(".my-30 > .btn").click(); // schedule time
-          cy.wait(15000);
-          cy.get(".close > img").click(); // tutorial modal
-          cy.wait(2000);
-          //availability      .close > img
-          cy.get(".fc-next-button > .fc-icon").click(); // calendars next btn
-          cy.wait(3000);
-          cy.get(".fc-next-button > .fc-icon").click(); //calendars next btn
-          cy.wait(3000);
-          cy.get(".fc-day-wed > .fc-daygrid-day-frame > .fc-daygrid-day-events").click(); //wed
-          cy.wait(3000);
-          cy.get(".fc-day-thu > .fc-daygrid-day-frame > .fc-daygrid-day-events").click(); //thu
-          cy.wait(3000);
-          cy.get(".fc-day-fri > .fc-daygrid-day-frame > .fc-daygrid-day-events").click(); //fri
-          cy.wait(4000);
-          cy.xpath("(//button[@type='button'])[6]").click(); 
-          cy.wait(5000);
-          cy.get(".bg-white > .justify-content > .flex-none > .btn").click(); //submit your avaliablity btn 
-          cy.wait(10000);
-          cy.get(":nth-child(4) > .cursor-pointer").click(); //logout
-          cy.wait(10000);
+//     //       cy.visit("https://hoot-web-staging.herokuapp.com/"); 
+//           cy.get("#emailAddress").type("sysforthoot3@gmail.com");
+//           cy.wait(2000);
+//           cy.get("#passwordConfirmation").type("Sysforth3@2022");
+//           cy.wait(2000);
+//           cy.get(".btn").click(); 
+//           cy.wait(40000);
+//           cy.get(".mt-20").click(); // view case
+//           cy.wait(2000);
+//           cy.get(":nth-child(5) > .mb-20").click(); // accept case review btn
+//           cy.wait(2000);
+//           cy.get(":nth-child(7) > .mb-20").click(); // confirmtaion of accept case
+//           cy.wait(13000);
+//           cy.get(".my-30 > .btn").click(); // schedule time
+//           cy.wait(15000);
+//           cy.get(".close > img").click(); // tutorial modal
+//           cy.wait(2000);
+//           //availability      .close > img
+//           cy.get(".fc-next-button > .fc-icon").click(); // calendars next btn
+//           cy.wait(3000);
+//           cy.get(".fc-next-button > .fc-icon").click(); //calendars next btn
+//           cy.wait(3000);
+//           cy.get(".fc-day-wed > .fc-daygrid-day-frame > .fc-daygrid-day-events").click(); //wed
+//           cy.wait(3000);
+//           cy.get(".fc-day-thu > .fc-daygrid-day-frame > .fc-daygrid-day-events").click(); //thu
+//           cy.wait(3000);
+//           cy.get(".fc-day-fri > .fc-daygrid-day-frame > .fc-daygrid-day-events").click(); //fri
+//           cy.wait(4000);
+//           cy.xpath("(//button[@type='button'])[6]").click(); 
+//           cy.wait(5000);
+//           cy.get(".bg-white > .justify-content > .flex-none > .btn").click(); //submit your avaliablity btn 
+//           cy.wait(10000);
+//           cy.get(":nth-child(4) > .cursor-pointer").click(); //logout
+//           cy.wait(10000);
           
 
 
-          //llgin to cc for close out case 
+//           //llgin to cc for close out case 
 
-          cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
-          cy.wait(2000);
-          cy.get("#passwordConfirmation").type("Sysfortcc@2021");
-          cy.wait(2000);
-          cy.get(".btn").click();
-          cy.wait(15000);
-          cy.get('li:nth-child(1) > .block > .flex').click(); // 1st row
-          //cy.xpath("(//button[@type='button'])[5]").click();
-          cy.wait(15000);
-          cy.get(".mb-30 > .btn").click(); // schedule a reviee call
-          cy.wait(18000);
-          cy.get('.close > img').click(); //close tutorial  modal
-          cy.wait(5000);
-          cy.get(".p-15").click(); //date picker
-          cy.wait(2000);
-          cy.get(".react-datepicker__navigation").click(); //next month
-          cy.wait(2000);
-          cy.get(":nth-child(1) > .react-datepicker__day--001").click(); //selct date
-          cy.wait(2000);
-          cy.get('.rc-time-picker-input').click();//time picker 
-          cy.wait(2000);
-          cy.get('.rc-time-picker-panel-input').type("11:15am"); // type time
-          cy.wait(2000);
-          cy.get('.bg-zoom').click(); //schedule call via zoom
-          cy.wait(2000);
-          cy.get('.modal-body > .btn-secondary').click(); //confirmation button
-          cy.wait(25000);
-          cy.get(':nth-child(4) > .btn').click(); //close out case
-          cy.wait(2000);
-          cy.get('#isTermsAgreed').click(); //confirmation checkbox on modal
-          cy.get('.uaTrack-btn-confirm').click(); //confirmation button on modal of close case
-          cy.wait(5000);
-          cy.get('.hidden > :nth-child(4) > .cursor-pointer').click(); // logout
-          cy.wait(10000);
+//           cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
+//           cy.wait(2000);
+//           cy.get("#passwordConfirmation").type("Sysfortcc@2021");
+//           cy.wait(2000);
+//           cy.get(".btn").click();
+//           cy.wait(15000);
+//           cy.get('li:nth-child(1) > .block > .flex').click(); // 1st row
+//           //cy.xpath("(//button[@type='button'])[5]").click();
+//           cy.wait(15000);
+//           cy.get(".mb-30 > .btn").click(); // schedule a reviee call
+//           cy.wait(18000);
+//           cy.get('.close > img').click(); //close tutorial  modal
+//           cy.wait(5000);
+//           cy.get(".p-15").click(); //date picker
+//           cy.wait(2000);
+//           cy.get(".react-datepicker__navigation").click(); //next month
+//           cy.wait(2000);
+//           cy.get(":nth-child(1) > .react-datepicker__day--001").click(); //selct date
+//           cy.wait(2000);
+//           cy.get('.rc-time-picker-input').click();//time picker 
+//           cy.wait(2000);
+//           cy.get('.rc-time-picker-panel-input').type("11:15am"); // type time
+//           cy.wait(2000);
+//           cy.get('.bg-zoom').click(); //schedule call via zoom
+//           cy.wait(2000);
+//           cy.get('.modal-body > .btn-secondary').click(); //confirmation button
+//           cy.wait(25000);
+//           cy.get(':nth-child(4) > .btn').click(); //close out case
+//           cy.wait(2000);
+//           cy.get('#isTermsAgreed').click(); //confirmation checkbox on modal
+//           cy.get('.uaTrack-btn-confirm').click(); //confirmation button on modal of close case
+//           cy.wait(5000);
+//           cy.get('.hidden > :nth-child(4) > .cursor-pointer').click(); // logout
+//           cy.wait(10000);
 
       
-      })
+//       })
          
          
          
