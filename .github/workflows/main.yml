@@ -17,12 +17,18 @@ jobs:
             # pass GitHub token to allow accurately detecting a build vs a re-run build
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
-  notify_slack:
+  slackNotification:
+    name: Slack Notification
     runs-on: ubuntu-latest
-    name: Notify Slack on Release
     steps:
-      - name: Notify Slack on Release
-        uses: instantish/notify-slack-on-release@1.0.0
-        with:
+    - uses: actions/checkout@v2
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env: 
+          SLACK_CHANNEL: random
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_TITLE: Post Title
+          SLACK_USERNAME: rtCamp
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_MESSAGE: "<https://dashboard.cypress.io/projects/n49r7v/runs|Click here> for more details."
