@@ -1,4 +1,4 @@
-name: Cypress Test
+name: Cypress Tests
 on: [push]
 jobs:
   cypress-run:
@@ -17,19 +17,6 @@ jobs:
             # pass GitHub token to allow accurately detecting a build vs a re-run build
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-                name: cypress-snapshots
-                path: cypress/screenshots
-                
-      - name: 'Upload screenshots and videos to Slack'
-        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
-        with:
-          token: ${{ secrets.SLACK_TOKEN }}
-          channel: '#random'
-     
       - name: Report Status
         if: always()
         uses: act10ns/slack@v1
@@ -39,6 +26,3 @@ jobs:
           channel : '#random'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      
-      
-      
