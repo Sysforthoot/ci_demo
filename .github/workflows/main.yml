@@ -16,14 +16,13 @@ jobs:
             CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
             # pass GitHub token to allow accurately detecting a build vs a re-run build
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  messageSlack:
+  
+  notify_slack:
     runs-on: ubuntu-latest
-    steps:      
-      - name: Notification Slack
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: random
-          
-          SLACK_USERNAME: BotCI
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+    name: Notify Slack on Release
+    steps:
+      - name: Notify Slack on Release
+        uses: instantish/notify-slack-on-release@1.0.0
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_MESSAGE: "<https://dashboard.cypress.io/projects/n49r7v/runs|Click here> for more details."
