@@ -17,12 +17,10 @@ jobs:
             # pass GitHub token to allow accurately detecting a build vs a re-run build
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
-      - name: Report Status
-        if: always()
-        uses: act10ns/slack@v1
+      - name: 'Upload screenshots and videos to Slack'
+        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+        if: failure()
         with:
-          status: ${{ job.status }}
-          notify_when: 'success'
-          channel : '#random'
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          token: ${{ secrets.SLACK_TOKEN }}
+          channels: 'engineering-ops'
+          message-text: 'Cypress tests failed! They have been placed in this thread, good luck.'
