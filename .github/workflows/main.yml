@@ -16,7 +16,7 @@ jobs:
         if: failure()
         with:
                 name: cypress-snapshots
-                path: cypress/screenshots
+                path: cypress/screenshots/testfolder
         
       - name: Report Status
         if: always()
