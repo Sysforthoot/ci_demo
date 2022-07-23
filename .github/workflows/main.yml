@@ -22,7 +22,7 @@ jobs:
         if: failure()
         with:
                 name: cypress-snapshots
-                path: cypress/screenshots/testfolder
+                path: cypress/screenshots
                 
       - name: 'Upload screenshots and videos to Slack'
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
