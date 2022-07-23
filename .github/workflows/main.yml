@@ -30,5 +30,5 @@ jobs:
           SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_TITLE: Post Title
           SLACK_USERNAME: rtCamp
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_MESSAGE: "<https://dashboard.cypress.io/projects/n49r7v/runs|Click here> for more details."
