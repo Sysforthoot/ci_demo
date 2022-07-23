@@ -32,6 +32,11 @@ jobs:
           channel : '#random'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          
+      
+      - name: 'Upload screenshots and videos to Slack'
+        uses: trymbill/cypress-slack-video-upload-action@v1.3.0
+        with:
+          token: ${{ secrets.SLACK_TOKEN }}
+          channels: '#random'
      
       
