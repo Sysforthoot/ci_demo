@@ -93,11 +93,11 @@ describe('cc-app-test 1', () => {
         cy.visit(href)
       })
       cy.wait(2000);
-      cy.get('.ra-multiselect-left > .wrapper > .form-control').select("120"); //select medical expert
+      cy.get('.ra-multiselect-left > .wrapper > .form-control').select("153"); //select medical expert
       cy.get('.ra-multiselect-center > .ui-icon-circle-triangle-e').click(); //push it tonext column
       cy.wait(1000);
     
-      cy.get('.ra-multiselect-left > .wrapper > .form-control').select("111"); //select medical expert
+      cy.get('.ra-multiselect-left > .wrapper > .form-control').select("154"); //select medical expert
       cy.get('.ra-multiselect-center > .ui-icon-circle-triangle-e').click(); //push it tonext column
       cy.wait(1000);
       cy.get('#admin_match_organization_complete').click(); //org complete checkbox
@@ -126,7 +126,7 @@ describe('cc-app-test 1', () => {
      cy.wait(13000);
      cy.get('li:nth-child(1) > .block > .flex').click(); //row 1
      cy.wait(15000);
-     cy.get(':nth-child(2) > .justify-content-between > div.flex-none > #tooltipTrigger > .py-10').click(); //select expert button 1
+     cy.get(':nth-child(1) > .justify-content-between > div.flex-none > #tooltipTrigger > .py-10').click(); //select expert button 1
      cy.wait(2000);
      cy.get('.uaTrack-btn-respond-confirm-selection').click(); //confirmation modal
      cy.wait(20000);
@@ -138,14 +138,14 @@ describe('cc-app-test 1', () => {
 it("Decline case on Medical expert side",()=>{
 // case decline
 cy.visit("https://hoot-web-staging.herokuapp.com/"); 
-cy.get("#emailAddress").type("sysforthoot1@gmail.com");
+cy.get("#emailAddress").type("sysforthoot14@gmail.com");
 cy.wait(2000);
-cy.get("#passwordConfirmation").type("Sysforth1@2022");
+cy.get("#passwordConfirmation").type("Sysforth14@2022");
 cy.wait(2000);
 cy.get(".btn").click(); 
-cy.wait(60000);
-cy.get(".mt-20").click(); // view case
-cy.wait(2000);
+cy.wait(50000);
+cy.get('.mt-20').click(); // view case
+cy.wait(5000);
 cy.get('.btn-tertiary').click(); // decline case review btn
 cy.wait(2000);
 cy.get(':nth-child(7) > .mb-20').click(); // confirmtaion of decline case
@@ -188,9 +188,9 @@ it("medical expert side",()=>{
 
 
     cy.visit("https://hoot-web-staging.herokuapp.com/"); 
-    cy.get("#emailAddress").type("sysforthoot2@gmail.com");
+    cy.get("#emailAddress").type("sysforthoot13@gmail.com");
     cy.wait(2000);
-    cy.get("#passwordConfirmation").type("Sysforth2@2022");
+    cy.get("#passwordConfirmation").type("Sysforth13@2022");
     cy.wait(2000);
     cy.get(".btn").click(); 
     cy.wait(60000);
@@ -199,7 +199,7 @@ it("medical expert side",()=>{
     cy.get(":nth-child(5) > .mb-20").click(); // accept case review btn
     cy.wait(2000);
     cy.get(":nth-child(7) > .mb-20").click(); // confirmtaion of accept case
-    cy.wait(30000);
+    cy.wait(45000);
     cy.get(".my-20 > .btn").click(); // schedule time check id
     cy.wait(15000);
     cy.get(".close > img").click(); // tutorial modal
