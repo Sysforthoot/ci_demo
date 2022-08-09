@@ -2,7 +2,7 @@
 
 // import { times } from "cypress/types/lodash";
 
-// const { times } = require("cypress/types/lodash")
+// const { times } = require("cypress/types/lodash");
 
 describe('cc-app-test', () => {
       
