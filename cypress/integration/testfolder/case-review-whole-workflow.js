@@ -6,7 +6,7 @@
 
 describe('cc-app-test', () => {
       
-  it("open the hoot medplus login page ",()=>{
+  it("open the hoot medplus login page 1",()=>{
     
     cy.visit("https://hoot-web-staging.herokuapp.com/");  
        cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
@@ -17,11 +17,11 @@ describe('cc-app-test', () => {
        cy.wait(13000);
        cy.get('#newCaseLink').click();
        cy.wait(10000);
-       cy.get("#claimNumber",{delay:0}).type("1-06-cy-testing",{delay:0});
+       cy.get("#claimNumber").type("1-06-cy-testing");
       //  cy.wait(2000); 
-       cy.get("#claimantLastName",{delay:0}).type("1-06-cy-testing",{delay:0});
+       cy.get("#claimantLastName").type("1-06-cy-testing");
       //  cy.wait(2000);
-       cy.get("#insured",{delay:0}).type("1-06-cy-testing",{delay:0});
+       cy.get("#insured").type("1-06-cy-testing");
       //  cy.wait(2000);
       //  cy.get("#externalExpert").click();
        
@@ -35,11 +35,11 @@ describe('cc-app-test', () => {
        cy.wait(1000);
        cy.get('#stepOneContinueButton').click(); // continue to step 2
        cy.wait(15000);
-       cy.get("#caseType").type("1-06-cy-testing",{delay:0});
+       cy.get("#caseType").type("1-06-cy-testing");
        cy.wait(2000);
-       cy.get("#injuryType").type("1-06-cy-testing",{delay:0});
+       cy.get("#injuryType").type("1-06-cy-testing");
        cy.wait(2000);
-       cy.get("#zipCode").type("45678",{delay:0});
+       cy.get("#zipCode").type("45678");
        cy.wait(2000);
 
        cy.get("#shortDescription").type(" 1-06-cy-testing description");
