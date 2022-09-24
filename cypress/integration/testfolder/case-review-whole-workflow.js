@@ -6,7 +6,7 @@
 
 describe('cc-app-test', () => {
       
-  it("open the hoot medplus login page 1",()=>{
+  it("open the hoot medplus login page ",()=>{
     
     cy.visit("https://hoot-web-staging.herokuapp.com/");  
        cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
