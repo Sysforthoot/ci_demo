@@ -4,7 +4,7 @@
 
 // const { times } = require("cypress/types/lodash");
 
-describe('cc-app-test', () => {
+describe('cc-app-test ', () => {
       
   it("open the hoot medplus login page 1",()=>{
     
