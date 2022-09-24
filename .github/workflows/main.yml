@@ -1,8 +1,8 @@
 name: Cypress Tests
-on: [ push ]
+on:
  
-#  schedule:
-#     - cron: '30 7 * * 1-5'
+ schedule:
+    - cron: '30 7 * * 1-5'
     
 jobs:
   cypress-run:
@@ -13,7 +13,7 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@v4.0.0
         with: 
-          browser: chrome
+          browser: firefox
           record: true
         env:
             # pass the Dashboard record key as an environment variable
