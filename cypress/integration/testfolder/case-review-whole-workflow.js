@@ -3,8 +3,11 @@
 // import { times } from "cypress/types/lodash";
 
 // const { times } = require("cypress/types/lodash");
-
-describe('cc-app-test ', () => {
+var date =new Date();
+var current_date = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
+var keyword = current_date+'-cy-testing';
+var current_day = date.getDate();
+describe('cc-app-test', () => {
       
   it("open the hoot medplus login page 1",()=>{
     
@@ -15,13 +18,13 @@ describe('cc-app-test ', () => {
        cy.wait(2000);
        cy.get(".btn").click();
        cy.wait(13000);
-       cy.get('#newCaseLink').click();
-       cy.wait(10000);
-       cy.get("#claimNumber").type("1-06-cy-testing");
+       cy.get('#newCaseLink',{timeout:10000}).click();
+      //  cy.wait(10000);
+       cy.get("#claimNumber",{timeout:6000}).type(keyword);
       //  cy.wait(2000); 
-       cy.get("#claimantLastName").type("1-06-cy-testing");
+       cy.get("#claimantLastName",{timeout:6000}).type(keyword);
       //  cy.wait(2000);
-       cy.get("#insured").type("1-06-cy-testing");
+       cy.get("#insured",{timeout:3000}).type(keyword,{delay:0});
       //  cy.wait(2000);
       //  cy.get("#externalExpert").click();
        
@@ -31,22 +34,22 @@ describe('cc-app-test ', () => {
       //  cy.get('#react-select-3-input',{ timeout: 10000 }).type('apple');
       //  cy.get("#react-select-3-option-0").click();
        //----
-       cy.contains('Select...').type('{enter}');
-       cy.wait(1000);
-       cy.get('#stepOneContinueButton').click(); // continue to step 2
-       cy.wait(15000);
-       cy.get("#caseType").type("1-06-cy-testing");
+       cy.contains('Select...',{timeout:6000}).type('{enter}',{delay:0});
+      //  cy.wait(1000);
+       cy.get('#stepOneContinueButton',{timeout:6000}).click({delay:0}); // continue to step 2
+      //  cy.wait(15000);
+       cy.get("#caseType",{timeout:6000}).type(keyword);
+      //  cy.wait(2000);
+       cy.get("#injuryType",{timeout:6000}).type(keyword);
        cy.wait(2000);
-       cy.get("#injuryType").type("1-06-cy-testing");
-       cy.wait(2000);
-       cy.get("#zipCode").type("45678");
+       cy.get("#zipCode",{timeout:6000}).type("45678");
        cy.wait(2000);
 
-       cy.get("#shortDescription").type(" 1-06-cy-testing description");
+       cy.get("#shortDescription",{timeout:6000}).type(" 1-06-cy-testing description");
        cy.wait(2000);
-       cy.get("#questionsForExpert").type("1-06-cy-testing questions for expert");
+       cy.get("#questionsForExpert",{timeout:6000}).type("1-06-cy-testing questions for expert");
        cy.wait(2000);
-       cy.get('#stepTwoSubmitButton').click(); //contiue to step 3
+       cy.get('#stepTwoSubmitButton',{timeout:6000}).click(); //contiue to step 3
        cy.wait(15000);
 
       //  cy.get(":nth-child(2) > .bg-smurf-butt").click(); //yes for medical record
@@ -55,20 +58,20 @@ describe('cc-app-test ', () => {
       //  cy.wait(30000);
       //  cy.get("#organizationRequested").click();
        
-       cy.get(".row-start-1").click(); // continue to step 4
+       cy.get(".row-start-1",{timeout:6000}).click(); // continue to step 4
        cy.wait(2000);
-       cy.get(".btn-primary").click(); // submit order
+       cy.get(".btn-primary",{timeout:6000}).click(); // submit order
        cy.wait(10000);
        const p = 'testing.pdf';
        cy.get('#uploadCaseFileInput').attachFile(p);
        cy.wait(25000);
-      cy.get('.order-lg-2 > .btn').click(); //match with me button
+      cy.get('.order-lg-2 > .btn',{timeout:6000}).click(); //match with me button
       cy.wait(5000);
       // cy.get('[data-index="4"]').click();
       //  cy.wait(2000);
       //  cy.get('.btn').click();
       //  cy.wait(5000);
-      cy.get('#headerLogoutLink').click(); // logout
+      cy.get('#headerLogoutLink',{timeout:6000}).click(); // logout
       cy.wait(10000);
   
 
@@ -156,7 +159,7 @@ it("medical expert side",()=>{
     cy.wait(40000);
     cy.get(".my-20 > .btn").click(); // schedule time check id
     cy.wait(15000);
-    cy.get(".close > img").click(); // tutorial modal
+    cy.get("#modalCloseBtn").click(); // tutorial modal
     cy.wait(3000);
     //availability      .close > img
     cy.get(".fc-next-button > .fc-icon").click(); // calendars next btn
