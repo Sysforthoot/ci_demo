@@ -4,7 +4,7 @@
 
 // const { times } = require("cypress/types/lodash");
 
-for(let i =0; i<10; i++){
+// for(let i =0; i<10; i++){
 
 
 var date =new Date();
@@ -233,4 +233,4 @@ it("medical expert side",()=>{
 
 })
 });
-}
+// }
