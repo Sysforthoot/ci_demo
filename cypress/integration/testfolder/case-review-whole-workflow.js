@@ -229,7 +229,7 @@ it("medical expert side",()=>{
    
    
    
-  i=i+1;
+//   i=i+1;
 
 })
 });
