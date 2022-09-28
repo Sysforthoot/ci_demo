@@ -13,7 +13,7 @@ var keyword = current_date+'-cy-testing';
 var current_day = date.getDate();
 describe('cc-app-test', () => {
       
-  it("open the hoot medplus login page",()=>{
+  it("open the hoot medplus login page 1",()=>{
     
     cy.visit("https://hoot-web-staging.herokuapp.com/");  
        cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
@@ -229,7 +229,7 @@ it("medical expert side",()=>{
    
    
    
-//   i=i+1;
+  // i=i+1;
 
 })
 });
