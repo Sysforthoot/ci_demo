@@ -3,10 +3,12 @@
 // import { times } from "cypress/types/lodash";
 
 // const { times } = require("cypress/types/lodash");
+const num1 = 1;
 var date =new Date();
 var current_date = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
 var keyword = current_date+'-cy-testing';
-
+var current_day = date.getDate() + num1;
+// for(let i =0; i<10; i++){
 describe('cc-app-test 1', () => {
       
     it("open the hoot medplus login page 1",()=>{
@@ -157,7 +159,9 @@ describe('cc-app-test 1', () => {
       cy.wait(3000);
       // cy.get(".react-datepicker__navigation").click(); //next month
       // cy.wait(3000);
-      cy.get(':nth-child(5) > .react-datepicker__day--030').click(); //selct date
+      // cy.get('.react-datepicker__navigation').click();
+      cy.wait(1000);
+      cy.get(':nth-child(2) > .react-datepicker__day--00'+current_day).click(); //selct date
       cy.wait(3000);
       cy.get('.rc-time-picker-input').click();//time picker 
       cy.wait(3000);
@@ -188,4 +192,4 @@ describe('cc-app-test 1', () => {
   
   })
   });
-  
+// }
