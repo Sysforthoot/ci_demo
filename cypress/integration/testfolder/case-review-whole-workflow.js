@@ -6,11 +6,11 @@
 
 // for(let i =0; i<10; i++){
 
-
+const num1 = 1;
 var date =new Date();
 var current_date = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
 var keyword = current_date+'-cy-testing';
-var current_day = date.getDate();
+var current_day = date.getDate() + num1;
 describe('cc-app-test', () => {
       
   it("open the hoot medplus login page 1",()=>{
@@ -206,7 +206,7 @@ it("medical expert side",()=>{
     cy.wait(3000);
     // cy.get(".react-datepicker__navigation").click(); //next month
     // cy.wait(3000);
-    cy.get(':nth-child(5) > .react-datepicker__day--030').click(); //selct date
+    cy.get(':nth-child(2) > .react-datepicker__day--00'+current_day).click(); //selct date
     cy.wait(3000);
     cy.get('.rc-time-picker-input').click();//time picker 
     cy.wait(3000);
