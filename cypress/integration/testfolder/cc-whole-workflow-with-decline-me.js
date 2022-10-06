@@ -3,40 +3,41 @@
 
 
 // const { times } = require("cypress/types/lodash");
+const num1 = 1;
 var date =new Date();
 var current_date = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
 var keyword = current_date+'-cy-testing';
-
-for(let i =0; i<10; i++){
+var current_day = date.getDate() + num1;
+// for(let i =0; i<10; i++){
 describe('cc-app-test 1', () => {
       
   it("open the hoot medplus login page",()=>{
     
     cy.visit("https://hoot-web-staging.herokuapp.com/");  
-       cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
-       cy.wait(2000);
-       cy.get("#passwordConfirmation").type("Sysfortcc@2021");
-       cy.wait(2000);
-       cy.get(".btn").click();
-       cy.wait(13000);
-       cy.get('#newCaseLink').click();
-      //  cy.wait(10000);
-       cy.get("#claimNumber",{timeout:15000}).type(keyword,{delay:0});
-      //  cy.wait(2000); 
-       cy.get("#claimantLastName",{timeout:3000}).type(keyword,{delay:0});
-      //  cy.wait(2000);
-       cy.get("#insured",{timeout:3000}).type(keyword,{delay:0});
-      //  cy.wait(2000);
-      //  cy.get("#externalExpert").click();
-       
-      // cy.get(".hoot__value-container").type("apple");
-        // cy.get("#react-select-3-input").should("have.value","apple");
-        //-----
-      //  cy.get('#react-select-3-input',{ timeout: 10000 }).type('apple');
-      //  cy.get("#react-select-3-option-0").click();
-       //----
-       cy.contains('Select...',{timeout:3000}).type('{enter}',{delay:0});
-      //  cy.wait(1000);
+    cy.get("#emailAddress").type("sysfort05+cc-test-01@gmail.com");
+    cy.wait(2000);
+    cy.get("#passwordConfirmation").type("Sysfortcc@2021");
+    cy.wait(2000);
+    cy.get(".btn").click();
+    cy.wait(13000);
+    cy.get('#newCaseLink',{timeout:10000}).click();
+   //  cy.wait(10000);
+    cy.get("#claimNumber",{timeout:6000}).type(keyword);
+   //  cy.wait(2000); 
+    cy.get("#claimantLastName",{timeout:6000}).type(keyword);
+   //  cy.wait(2000);
+    cy.get("#insured",{timeout:3000}).type(keyword,{delay:0});
+   //  cy.wait(2000);
+   //  cy.get("#externalExpert").click();
+    
+   // cy.get(".hoot__value-container").type("apple");
+     // cy.get("#react-select-3-input").should("have.value","apple");
+     //-----
+   //  cy.get('#react-select-3-input',{ timeout: 10000 }).type('apple');
+   //  cy.get("#react-select-3-option-0").click();
+    //----
+    cy.contains('Select...',{timeout:6000}).type('{enter}',{delay:0});
+   //  cy.wait(1000);
        cy.get('#stepOneContinueButton').click(); // continue to step 2
        cy.wait(15000);
        cy.get("#caseType").type(keyword);
@@ -251,7 +252,7 @@ it("medical expert side",()=>{
     cy.wait(3000);
     // cy.get(".react-datepicker__navigation").click(); //next month
     // cy.wait(3000);
-    cy.get(':nth-child(5) > .react-datepicker__day--030').click(); //selct date
+    cy.get(':nth-child(2) > .react-datepicker__day--00'+current_day).click(); //selct date
     cy.wait(3000);
     cy.get('.rc-time-picker-input').click();//time picker 
     cy.wait(3000);
@@ -279,4 +280,4 @@ it("medical expert side",()=>{
 })
 });
 
-}
+// }
