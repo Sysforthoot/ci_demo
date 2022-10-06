@@ -3,10 +3,11 @@
 // import { times } from "cypress/types/lodash";
 
 // const { times } = require("cypress/types/lodash");
+const num1 = 1;
 var date =new Date();
 var current_date = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
 var keyword = current_date+'-cy-testing';
-
+var current_day = date.getDate() + num1;
 describe('cc-app-test 1', () => {
       
     it("open the hoot medplus login page 1",()=>{
@@ -40,7 +41,7 @@ describe('cc-app-test 1', () => {
          cy.contains('Select...',{timeout:3000}).type('{enter}',{delay:0});
         //  cy.wait(1000);
        cy.get('#stepOneContinueButton',{timeout:3000}).click({delay:0}); // continue to step 2
-         cy.wait(7000);
+         cy.wait(14000);
          cy.contains('Select...',{timeout:3000}).type('External Expert Test {enter}',{delay:0}); // external expert organisation 
         //  cy.wait(2000);
          cy.get("#caseType",{timeout:3000}).type(keyword,{delay:0});
@@ -68,7 +69,7 @@ describe('cc-app-test 1', () => {
          cy.wait(10000);
          const p = 'testing.pdf';
        cy.get('#uploadCaseFileInput').attachFile(p);
-         cy.wait(35000);
+         cy.wait(30000);
          cy.get('.order-lg-2 > .mt-20').click(); //invite your own ME
          cy.wait(2000);
          cy.get(':nth-child(2) > .btn').click();
@@ -162,7 +163,7 @@ describe('cc-app-test 1', () => {
       cy.wait(3000);
       // cy.get(".react-datepicker__navigation").click(); //next month
       // cy.wait(3000);
-      cy.get(':nth-child(5) > .react-datepicker__day--030').click(); //selct date
+      cy.get(':nth-child(2) > .react-datepicker__day--00'+current_day).click(); //selct date
       cy.wait(3000);
       cy.get('.rc-time-picker-input').click();//time picker 
       cy.wait(3000);
